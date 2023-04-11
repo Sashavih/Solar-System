@@ -6,6 +6,7 @@ import ReusableButton from "./components/ResultBtn/ResultBtn";
 import Header from './components/header/Header';
 import AboutPlanet from './components/AboutPlanet/AboutPlanet';
 import { getData, } from './components/utils/utils';
+import Chart from './components/chart/chart';
 
 function App() {
 
@@ -39,7 +40,7 @@ function App() {
 				</Stack>
 			</Container>
 			<AboutPlanet data={data} />
-
+			{/* <Chart/> */}
 		</div>
 	);
 }
