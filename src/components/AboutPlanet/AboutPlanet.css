@@ -1,0 +1,26 @@
+.planets {
+    width: 60%;
+    margin: auto;
+    margin-top: 6rem;
+    text-align: left;
+}
+
+.planets-box {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    justify-content: center;
+}
+
+.planets-box__title {
+    font-size: 46px;
+}
+
+.planets-box__item {
+    border: 2px solid rgb(203, 203, 203);
+    text-align: center;
+    border-radius: 7px;
+    width: 15rem;
+    height: 15rem;
+    padding: 1rem;
+}
