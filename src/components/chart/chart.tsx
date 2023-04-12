@@ -40,4 +40,3 @@ export const Chart = (props: any) => {
         </div>
     )
 }
-
