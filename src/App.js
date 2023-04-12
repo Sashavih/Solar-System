@@ -6,14 +6,14 @@ import ReusableButton from "./components/ResultBtn/ResultBtn";
 import Header from './components/header/Header';
 import AboutPlanet from './components/AboutPlanet/AboutPlanet';
 import { getData } from './components/utils/utils';
-import { Chart, getDataChart, getOptionsChart } from './components/Chart/Chart';
+import { Chart } from './components/Chart/Chart';
 
 function App() {
 
 	const [planet, changePlanet] = useState(1);
 	const [data, setData] = useState([]);
-	const [dataChart, setDataChart] = useState([]);
-	const [optionsChart, setOptionsChart] = useState(null);
+	// const [dataChart, setDataChart] = useState([]);
+	// const [optionsChart, setOptionsChart] = useState(null);
 
 
 	useEffect(() => {
@@ -24,18 +24,18 @@ function App() {
 		})
 	}, []);
 
-	useEffect(() => {
-		getDataChart().then((dataChart) => {
-			setDataChart(dataChart);
-		})
-	}, []);
+	// useEffect(() => {
+	// 	getDataChart().then((dataChart) => {
+	// 		setDataChart(dataChart);
+	// 	})
+	// }, []);
 
-	useEffect(() => {
-		if (dataChart) {
-			const optionsChart = getOptionsChart(dataChart);
-			setOptionsChart(optionsChart);
-		}
-	}, [dataChart])
+	// useEffect(() => {
+	// 	if (dataChart) {
+	// 		const optionsChart = getOptionsChart(dataChart);
+	// 		setOptionsChart(optionsChart);
+	// 	}
+	// }, [dataChart])
 
 	const planets = data;
 
@@ -57,7 +57,7 @@ function App() {
 				</Stack>
 			</Container>
 			<AboutPlanet data={data} />
-			<Chart options={optionsChart} />
+			<Chart />
 		</div>
 	);
 }
