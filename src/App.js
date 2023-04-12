@@ -11,10 +11,16 @@ import { Chart } from './components/Chart/Chart';
 function App() {
 
 	const [planet, changePlanet] = useState(1);
+
 	const [dataPlanetsName, setDataPlanetsName] = useState([]);
 	const [dataPlanets, setDataPlanets] = useState([]);
 	const [dataChart, setDataChart] = useState([]);
 	const [optionsChart, setOptionsChart] = useState(null);
+
+	const [data, setData] = useState([]);
+	// const [dataChart, setDataChart] = useState([]);
+	// const [optionsChart, setOptionsChart] = useState(null);
+
 
 
 	useEffect(() => {
@@ -26,6 +32,7 @@ function App() {
 			console.log(planets[0]);
 		})
 	}, []);
+
 	/*useEffect(() => {
 		getDataChart().then((dataChart) => {
 			setDataChart(dataChart);
@@ -40,6 +47,21 @@ function App() {
 	}, [dataChart])*/
 	const handleChangePlanet = (planets) =>
 		planets.map((onePlanet) => (onePlanet));
+
+	// useEffect(() => {
+	// 	getDataChart().then((dataChart) => {
+	// 		setDataChart(dataChart);
+	// 	})
+	// }, []);
+
+	// useEffect(() => {
+	// 	if (dataChart) {
+	// 		const optionsChart = getOptionsChart(dataChart);
+	// 		setOptionsChart(optionsChart);
+	// 	}
+	// }, [dataChart])
+
+	const planets = data;
 
 	return (
 		<div className="App">

@@ -10,7 +10,7 @@ export const Chart = (props: any) => {
 
 	useEffect(() => {
 		getDataChart().then((data) => {
-			let sizePlane = data.map((planet: any) => { return planet.meanRadius });
+			let sizePlane = data.map((planet => { return planet.meanRadius }));
 			setDataChart(sizePlane)
 		})
 	}, []);
