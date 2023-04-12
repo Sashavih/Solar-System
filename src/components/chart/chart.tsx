@@ -3,7 +3,7 @@ import HighchartsReact from 'highcharts-react-official';
 import './Chart.css'
 
 export const getDataChart = async () => {
-    const URL = ''; //ссылка на апи
+    const URL = ''; //ссылка на api
     const response = await fetch(URL);
     const data = await response.json();
     return data;
