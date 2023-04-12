@@ -35,7 +35,7 @@ function App() {
 			const optionsChart = getOptionsChart(dataChart);
 			setOptionsChart(optionsChart);
 		}
-	}, [data])
+	}, [dataChart])
 
 	const planets = data;
 
