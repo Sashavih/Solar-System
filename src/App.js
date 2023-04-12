@@ -6,7 +6,7 @@ import ReusableButton from "./components/ResultBtn/ResultBtn";
 import Header from './components/header/Header';
 import AboutPlanet from './components/AboutPlanet/AboutPlanet';
 import { getData } from './components/utils/utils';
-import { Chart, getDataChart, getOptionsChart } from './components/Chart/Chart';
+import { Chart, getDataChart, getOptionsChart } from './components/Chart/Сhart';
 
 function App() {
 
