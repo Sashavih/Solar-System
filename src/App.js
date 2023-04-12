@@ -6,38 +6,40 @@ import ReusableButton from "./components/ResultBtn/ResultBtn";
 import Header from './components/header/Header';
 import AboutPlanet from './components/AboutPlanet/AboutPlanet';
 import { getData } from './components/utils/utils';
-import { Chart, getDataChart, getOptionsChart } from './components/Chart/Chart';
+import { Chart } from './components/Chart/Chart';
 
 function App() {
 
 	const [planet, changePlanet] = useState(1);
-	const [data, setData] = useState([]);
+	const [dataPlanetsName, setDataPlanetsName] = useState([]);
+	const [dataPlanets, setDataPlanets] = useState([]);
 	const [dataChart, setDataChart] = useState([]);
 	const [optionsChart, setOptionsChart] = useState(null);
 
 
 	useEffect(() => {
 		getData().then((data) => {
+			const planets = data.bodies.slice(1, 10);
 			let planetName = data.bodies.slice(1, 10).map((el => { return el.name }));
-			console.log(planetName);
-			setData(planetName)
+			setDataPlanetsName(planetName);
+			setDataPlanets(planets);
+			console.log(planets[0]);
 		})
 	}, []);
-
-	useEffect(() => {
+	/*useEffect(() => {
 		getDataChart().then((dataChart) => {
 			setDataChart(dataChart);
 		})
-	}, []);
+	}, []);*/
 
-	useEffect(() => {
+	/*useEffect(() => {
 		if (dataChart) {
 			const optionsChart = getOptionsChart(dataChart);
 			setOptionsChart(optionsChart);
 		}
-	}, [dataChart])
-
-	const planets = data;
+	}, [dataChart])*/
+	const handleChangePlanet = (planets) =>
+		planets.map((onePlanet) => (onePlanet));
 
 	return (
 		<div className="App">
@@ -47,18 +49,18 @@ function App() {
 				<Stack
 					spacing={6}
 					direction="row">
-					{planets.map((planet) => {
+					{dataPlanetsName.map((planet) => {
 						return <ReusableButton
 							buttonVariant="outlined"
 							buttonSize="big"
 							buttonText={planet}
-							changePlanet={changePlanet} />
-					})}
+							changePlanet={handleChangePlanet} />
+					})};
 				</Stack>
 			</Container>
-			<AboutPlanet data={data} />
+			{dataPlanets.map((planet) => (<AboutPlanet key={planet.id} {...planet} />))}
 			<Chart options={optionsChart} />
-		</div>
+		</div >
 	);
 }
 

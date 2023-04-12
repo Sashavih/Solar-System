@@ -1,5 +1,5 @@
 export interface DATA {
-    name?: string
+    name?: string | boolean
 
 }
 export async function getData(): Promise<DATA[]> {

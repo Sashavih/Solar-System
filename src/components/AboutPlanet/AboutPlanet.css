@@ -10,10 +10,12 @@
     flex-direction: row;
     gap: 5rem;
     justify-content: center;
+    color: rgb(203, 203, 203);
 }
 
 .planets-box__title {
     font-size: 46px;
+
 }
 
 .planets-box__item {
@@ -21,6 +23,14 @@
     text-align: center;
     border-radius: 7px;
     width: 15rem;
-    height: 15rem;
     padding: 1rem;
+}
+
+.subtitle {
+    color: rgb(93, 98, 167);
+}
+
+span {
+    font-weight: 700;
+    color: rgb(225, 225, 225);
 }
