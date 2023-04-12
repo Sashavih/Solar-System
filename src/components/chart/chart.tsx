@@ -1,51 +1,43 @@
-import React from "react";
-import { Line } from "react-chartjs-2";
-import { faker } from '@faker-js/faker';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import './Chart.css'
 
-// import { Chart as ChartJS, LineElement, PointElement, LinearScale } from 'react-chartjs-2';
+export const getDataChart = async () => {
+    const URL = ''; //ссылка на апи
+    const response = await fetch(URL);
+    const data = await response.json();
+    return data;
+}
 
-// ChartJS.register(LineElement, PointElement, LinearScale);
+export const getOptionsChart = (data: any) => {
+    return {
+        chart: {
+            type: 'spline'
+        },
+        yAxis: {
+            title: {
+                text: ''
+            },
+            min: -100
+        },
+        title: {
+            text: ''
+        },
+        series: [
+            {
+                name: 'DATASET',
+                data: 'data.что то там'
+            }
+        ]
+    }
+}
 
-export const options = {
-	responsive: true,
-	plugins: {
-		legend: {
-		position: 'top' as const,
-		},
-		title: {
-		display: true,
-		text: 'Chart.js Line Chart',
-		},
-	},
-};
+export const Chart = (props: any) => {
+    const { options } = props;
+    return (
+        <div>
+            {options ? <div className='chart-box'><HighchartsReact className='chart-box' highcharts={Highcharts} options={options} /> </div> : <div>Loader...</div>}
+        </div>
+    )
+}
 
-console.log(faker);
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-export const data = {
-	labels,
-	datasets: [
-		{
-		label: 'Dataset 1',
-		data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-		borderColor: 'rgb(255, 99, 132)',
-		backgroundColor: 'rgba(255, 99, 132, 0.5)',
-		},
-		{
-		label: 'Dataset 2',
-		data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-		borderColor: 'rgb(53, 162, 235)',
-		backgroundColor: 'rgba(53, 162, 235, 0.5)',
-		},
-	],
-};
-
-const Chart= () => {
-	
-	return (
-		<Line options={options} data={data} />
-	);
-};
-
-export default Chart;

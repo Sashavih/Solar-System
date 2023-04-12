@@ -5,13 +5,16 @@ import { Container, Stack } from "@mui/material";
 import ReusableButton from "./components/ResultBtn/ResultBtn";
 import Header from './components/header/Header';
 import AboutPlanet from './components/AboutPlanet/AboutPlanet';
-import { getData, } from './components/utils/utils';
-import Chart from './components/chart/chart';
+import { getData } from './components/utils/utils';
+import { Chart, getDataChart, getOptionsChart } from './components/Chart/Chart';
 
 function App() {
 
 	const [planet, changePlanet] = useState(1);
 	const [data, setData] = useState([]);
+	const [dataChart, setDataChart] = useState([]);
+	const [optionsChart, setOptionsChart] = useState(null);
+
 
 	useEffect(() => {
 		getData().then((data) => {
@@ -20,6 +23,20 @@ function App() {
 			setData(planetName)
 		})
 	}, []);
+
+	useEffect(() => {
+		getDataChart().then((dataChart) => {
+			setDataChart(dataChart);
+		})
+	}, []);
+
+	useEffect(() => {
+		if (dataChart) {
+			const optionsChart = getOptionsChart(dataChart);
+			setOptionsChart(optionsChart);
+		}
+	}, [data])
+
 	const planets = data;
 
 	return (
@@ -40,7 +57,7 @@ function App() {
 				</Stack>
 			</Container>
 			<AboutPlanet data={data} />
-			{/* <Chart/> */}
+			<Chart options={optionsChart} />
 		</div>
 	);
 }
