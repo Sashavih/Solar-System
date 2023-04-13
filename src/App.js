@@ -20,6 +20,7 @@ function App() {
 			setDataPlanets(planets);
 		})
 	}, []);
+
 	const handleChangePlanet = (object) => {
 		setSelectedObject(object);
 	}
