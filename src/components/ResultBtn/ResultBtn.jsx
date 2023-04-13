@@ -3,12 +3,12 @@ import './ResultBtn.css';
 import AboutPlanet from "../AboutPlanet/AboutPlanet";
 
 const ReusableButton = (props) => {
-    const { buttonText, changePlanet } = props;
+    const { buttonText, changePlanet, planet } = props;
     return (
         <Button variant={props.buttonVariant}
             color={props.buttonColor}
             size={props.buttonSize}
-            onClick={() => changePlanet(buttonText)}>
+            onClick={() => changePlanet(planet)}>
             {buttonText}
         </Button>
     )

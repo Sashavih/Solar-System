@@ -1,5 +1,6 @@
 body {
-	background: url('./static/stars.jpg');
+	background: url('./static/stars.jpg') no-repeat;
+	background-size: cover;
 
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -9,24 +9,19 @@ import { getData } from './components/utils/utils';
 import { Chart } from './components/Chart/Chart';
 
 function App() {
-	const [planet, changePlanet] = useState(1);
-	const [dataPlanetsName, setDataPlanetsName] = useState([]);
-	const [optionsChart, setOptionsChart] = useState(null);
 	const [data, setData] = useState([]);
-	const [dataPlanets, setDataPlanets] = useState([1]);
+	const [dataPlanets, setDataPlanets] = useState([]);
+	const [selectedObject, setSelectedObject] = useState([]);
 
 
 	useEffect(() => {
 		getData().then((data) => {
 			const planets = data.bodies.slice(1, 10);
-			let planetName = data.bodies.slice(1, 10).map((el => { return el.name }));
-			setDataPlanetsName(planetName);
 			setDataPlanets(planets);
-
 		})
 	}, []);
 	const handleChangePlanet = (object) => {
-		console.log(object)
+		setSelectedObject(object);
 	}
 
 	return (
@@ -37,18 +32,19 @@ function App() {
 				<Stack
 					spacing={6}
 					direction="row">
-					{dataPlanetsName.map((planet, index) => {
+					{dataPlanets.map((planet, index) => {
 						return <ReusableButton
+							planet={planet}
 							key={index}
 							buttonVariant="outlined"
 							buttonSize="big"
-							buttonText={planet}
+							buttonText={planet.name}
 							changePlanet={handleChangePlanet} />
 					})};
 				</Stack>
 			</Container>
-			{dataPlanets.map((planet) => (<AboutPlanet key={planet.id} {...planet} />))}
-			<Chart options={optionsChart} />
+			{selectedObject && (<AboutPlanet key={selectedObject.id} {...selectedObject} />)}
+			<Chart />
 		</div >
 	);
 }
