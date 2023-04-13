@@ -1,6 +1,6 @@
 .chart-box {
 	width: 50%;
-	margin: 6rem auto;
+	margin: 2rem auto;
 }
 
 .compare {
@@ -9,11 +9,13 @@
 	border-radius: 10px;
 	background-color: inherit;
 	color: white;
-	font-size: 20px;
+	font-size: 36px;
 }
 
 .blockButton {
 	display: flex;
+	margin-top: 6rem;
+	justify-content: center;
 }
 
 .choose {
@@ -23,5 +25,5 @@
 	border-radius: 10px;
 	background-color: inherit;
 	color: white;
-	font-size: 20px;
+	font-size: 22px;
 }
