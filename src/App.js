@@ -9,18 +9,11 @@ import { getData } from './components/utils/utils';
 import { Chart } from './components/Chart/Chart';
 
 function App() {
-
 	const [planet, changePlanet] = useState(1);
-
 	const [dataPlanetsName, setDataPlanetsName] = useState([]);
-	const [dataPlanets, setDataPlanets] = useState([]);
-	const [dataChart, setDataChart] = useState([]);
 	const [optionsChart, setOptionsChart] = useState(null);
-
 	const [data, setData] = useState([]);
-	// const [dataChart, setDataChart] = useState([]);
-	// const [optionsChart, setOptionsChart] = useState(null);
-
+	const [dataPlanets, setDataPlanets] = useState([1]);
 
 
 	useEffect(() => {
@@ -29,39 +22,12 @@ function App() {
 			let planetName = data.bodies.slice(1, 10).map((el => { return el.name }));
 			setDataPlanetsName(planetName);
 			setDataPlanets(planets);
-			console.log(planets[0]);
+
 		})
 	}, []);
-
-	/*useEffect(() => {
-		getDataChart().then((dataChart) => {
-			setDataChart(dataChart);
-		})
-	}, []);*/
-
-	/*useEffect(() => {
-		if (dataChart) {
-			const optionsChart = getOptionsChart(dataChart);
-			setOptionsChart(optionsChart);
-		}
-	}, [dataChart])*/
-	const handleChangePlanet = (planets) =>
-		planets.map((onePlanet) => (onePlanet));
-
-	// useEffect(() => {
-	// 	getDataChart().then((dataChart) => {
-	// 		setDataChart(dataChart);
-	// 	})
-	// }, []);
-
-	// useEffect(() => {
-	// 	if (dataChart) {
-	// 		const optionsChart = getOptionsChart(dataChart);
-	// 		setOptionsChart(optionsChart);
-	// 	}
-	// }, [dataChart])
-
-	const planets = data;
+	const handleChangePlanet = (object) => {
+		console.log(object)
+	}
 
 	return (
 		<div className="App">
@@ -71,8 +37,9 @@ function App() {
 				<Stack
 					spacing={6}
 					direction="row">
-					{dataPlanetsName.map((planet) => {
+					{dataPlanetsName.map((planet, index) => {
 						return <ReusableButton
+							key={index}
 							buttonVariant="outlined"
 							buttonSize="big"
 							buttonText={planet}

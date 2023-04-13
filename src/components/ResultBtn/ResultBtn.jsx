@@ -8,7 +8,7 @@ const ReusableButton = (props) => {
         <Button variant={props.buttonVariant}
             color={props.buttonColor}
             size={props.buttonSize}
-            onClick={() => changePlanet(AboutPlanet)}>
+            onClick={() => changePlanet(buttonText)}>
             {buttonText}
         </Button>
     )
