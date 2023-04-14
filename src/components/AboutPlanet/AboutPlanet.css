@@ -14,7 +14,7 @@
 }
 
 .planets-box__title {
-    cursor: pointer;
+    cursor: default;
     font-size: 46px;
     color: rgb(212, 212, 212);
 

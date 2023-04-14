@@ -7,3 +7,10 @@ export async function getData(): Promise<DATA[]> {
     const data = await res.json()
     return data as DATA[]
 }
+
+export const getDataChart = async () => {
+    const URL = 'https://api.le-systeme-solaire.net/rest/bodies/'; //ссылка на api
+    const response = await fetch(URL);
+    const data = await response.json();
+    return data.bodies.slice(0, 9);
+}

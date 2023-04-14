@@ -29,6 +29,7 @@ function App() {
 	const handleChangePlanet = (object) => {
 		setSelectedObject(object);
 	}
+
 	return (
 		<div className="App">
 			<Stars />
@@ -53,7 +54,6 @@ function App() {
 			</Container>
 			{selectedObject && (<AboutPlanet key={selectedObject.id} {...selectedObject} />)}
 			{showChart && <Chart />}
-
 		</div >
 	);
 }

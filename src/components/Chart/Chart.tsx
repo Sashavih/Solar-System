@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import { getDataChart } from '../../assets/data';
+import { getDataChart } from '../utils/utils';
 import './Chart.css';
 import Button from '../Button/Button';
 
@@ -16,7 +16,6 @@ export const Chart = (props: any) => {
 			let namePlane = data.map((planet => { return planet.englishName }));
 			setMinRadius(sizePlane)
 			setNamePlanet(namePlane);
-			console.log(data);
 		})
 	}, []);
 
