@@ -8,7 +8,7 @@ import AboutPlanet from './components/AboutPlanet/AboutPlanet';
 import { getData } from './components/utils/utils';
 import { Chart } from './components/Chart/Chart';
 import { Global } from './components/Global/Global';
-import './components/Stars/Stars.css';
+import Stars from './components/Stars/Stars';
 
 
 
@@ -16,7 +16,6 @@ function App() {
 	const [dataPlanets, setDataPlanets] = useState([]);
 	const [selectedObject, setSelectedObject] = useState([]);
 	const [showChart, setShowChart] = useState(false);
-
 
 	useEffect(() => {
 		getData().then((data) => {
@@ -30,14 +29,9 @@ function App() {
 	const handleChangePlanet = (object) => {
 		setSelectedObject(object);
 	}
-
-
-
 	return (
-		<div className="App notFoundBox">
-			<div id="stars"></div>
-			<div id="stars2"></div>
-			<div id="stars3"></div>
+		<div className="App">
+			<Stars />
 			<Header />
 			<h2 className='title'>Learn Solar System</h2>
 			<Global />
