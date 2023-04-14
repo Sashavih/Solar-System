@@ -13,7 +13,7 @@ export const Chart = (props: any) => {
 	useEffect(() => {
 		getDataChart().then((data) => {
 			let sizePlane = data.map((planet => { return planet.meanRadius }));
-			let namePlane = data.map((planet => { return planet.englishName}));
+			let namePlane = data.map((planet => { return planet.englishName }));
 			setMinRadius(sizePlane)
 			setNamePlanet(namePlane);
 			console.log(data);
@@ -43,11 +43,11 @@ export const Chart = (props: any) => {
 
 	return (
 		<>
-		
+
 			<div>
 				<div className="blockButton">
-				<Button className="choose" type="button" title="Choose a comparison option"></Button>
-				<Button className="compare" type="button" title="Compare"></Button>
+					<Button className="choose" type="button" title="Choose a comparison option"></Button>
+					<Button className="compare" type="button" title="Compare"></Button>
 				</div>
 				{options ? <div className='chart-box'><HighchartsReact className='chart-box' highcharts={Highcharts} options={options} /> </div> : <div>Loader...</div>}
 			</div>

@@ -14,12 +14,15 @@
 }
 
 .planets-box__title {
+    cursor: pointer;
     font-size: 46px;
+    color: rgb(212, 212, 212);
 
 }
 
 .planets-box__item {
-    border: 2px solid rgb(203, 203, 203);
+    cursor: default;
+    border: 2px solid rgb(93, 98, 167);
     text-align: center;
     border-radius: 7px;
     width: 15rem;
