@@ -9,7 +9,7 @@ const AboutPlanet = ({ ...props }) => {
     return (
         <div>
             {props.name ?
-                <section className="planets"><h2 className='planets-box__title'>{props.name}</h2><div className='planets-box'>
+                <section id="planets" className="planets"><h2 className='planets-box__title'>{props.name}</h2><div className='planets-box'>
                     <div className='planets-box__item'><h3 className='subtitle'>History</h3><p><span>Is Planet :</span> {isPlanet(props.isPlanet)}</p><span>English Name</span> {props.englishName} <p><span>Body Type</span> {props.bodyType}</p><p><span>Moons </span>{props.moons}</p><p><span>Discovered By</span>  {props.discoveredBy}</p><p><span>Discovery Date</span>  {props.discoveryDate}
                     </p></div ><div className='planets-box__item'><h3 className='subtitle'>Physical Characteristics</h3><p><span>Mass </span>: {props.mass.massValue}</p><p><span>Gravity :</span> {props.gravity}</p><p><span>Flattening </span> {props.flattening}
                     </p><p><span>vAphelion : </span>{props.aphelion}

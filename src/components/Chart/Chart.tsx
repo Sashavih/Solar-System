@@ -4,7 +4,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { getDataChart } from '../utils/utils';
 import './Chart.css';
-import {Button} from '../Button/Button';
+import { Button } from '../Button/Button';
 
 export const Chart = () => {
 	const [minRadius, setMinRadius] = useState<string[]>([]);
@@ -13,9 +13,7 @@ export const Chart = () => {
 	const [rotation, setRotation] = useState<string[]>([]);
 	const [nameChart, setName] = useState<String>('График планет по звездному вращению')
 	const [titleButton, setTitleButton] = useState("Choose a comparison option");
-
-	const[dataChart, setDataChart] = useState<string[]>();
-
+	const [dataChart, setDataChart] = useState<string[]>();
 	const [show, setShow] = useState <Boolean>(false);
 
 
@@ -56,22 +54,22 @@ export const Chart = () => {
 	};
 
 	const chooseOption = () => {
-		setShow(true);
+		setShow(!show);
 	};
 
 	const chooseRadius = () => {
 		setTitleButton("Radius");
-		setShow(false);
+		setShow(!show);
 	};
 
 	const chooseOrbita = () => {
 		setTitleButton("Orbita");
-		setShow(false);
+		setShow(!show);
 	};
 
 	const chooseRotation =() => {
 		setTitleButton("Rotation");
-		setShow(false);
+		setShow(!show);
 	};
 
 	const compare = () => {
@@ -96,7 +94,6 @@ export const Chart = () => {
 
 	return (
 		<>
-
 			<div>
 				<div className="blockButton">
 					<div className="blockList">

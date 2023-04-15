@@ -11,9 +11,6 @@ export const Button = ({
 	className,
 	handleClick,
 }: ButtonProps) => {
-	// const handleClick = (props: Function) => {
-	// 	showList();
-	// };
 
 	return (
 		<>
