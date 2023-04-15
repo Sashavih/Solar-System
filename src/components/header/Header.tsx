@@ -1,6 +1,7 @@
 import React from "react";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import logo from '../../assets/images/logo.svg';
+import sun from '../../assets/images/sun.svg';
 import './Header.css';
 import { Button } from '../Button/Button';
 
@@ -15,6 +16,9 @@ const Header = () => {
 		<div className="header">
 			<div className="logo">
 				<img src={ logo } alt="logo"/>
+			</div>
+			<div>
+				<img src={ sun } alt="sun"/>
 			</div>
 			<div className="menu">
 				<div>

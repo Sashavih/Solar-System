@@ -1,17 +1,19 @@
 .header {
-	padding: 30px 0;
+	padding: 0 0 30px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 }
 
 .logo {
+	padding-top: 30px;
 	width: 175px;
 }
 
 .menu {
+	padding-top: 30px;
 	display: flex;
-	align-items: center;
+	align-items: start;
 }
 
 .nav {
@@ -20,7 +22,7 @@
 }
 
 .buttonNav {
-	padding: 0;
+	padding: 3px 0 0;
 	margin-left: 20px;
 	border: none;
 	font-size: 22px;
