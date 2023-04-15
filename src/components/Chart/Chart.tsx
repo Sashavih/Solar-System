@@ -6,14 +6,15 @@ import { getDataChart } from '../utils/utils';
 import './Chart.css';
 import {Button} from '../Button/Button';
 
-export const Chart = (props: any) => {
+export const Chart = () => {
 	const [minRadius, setMinRadius] = useState<string[]>([]);
 	const [namePlanet, setNamePlanet] = useState<string[]>([]);
 	const [orbitPlanet, setOrbit] = useState<string[]>([]);
-
+	const [rotation, setRotation] = useState<string[]>([]);
+	const [nameChart, setName] = useState<String>('График планет по звездному вращению')
 	const [titleButton, setTitleButton] = useState("Choose a comparison option");
 
-	const[dataChart, setDataChart] = useState<string[]>([]);
+	const[dataChart, setDataChart] = useState<string[]>();
 
 	const [show, setShow] = useState <Boolean>(false);
 
@@ -23,10 +24,13 @@ export const Chart = (props: any) => {
 			let sizePlane = data.map((planet => { return planet.meanRadius }));
 			let namePlane = data.map((planet => { return planet.englishName }));
 			let sideralOrbitPlane = data.map((planet => { return planet.sideralOrbit }));
-			console.log(data);
+			let rotationPlane = data.map((planet => { return planet.sideralRotation }));
+
 			setMinRadius(sizePlane)
 			setNamePlanet(namePlane);
 			setOrbit(sideralOrbitPlane);
+			setDataChart(rotationPlane);
+			setRotation(rotationPlane);
 		})
 	}, []);
 
@@ -41,7 +45,7 @@ export const Chart = (props: any) => {
 			min: -100
 		},
 		title: {
-			text: 'График планет по диаметру.'
+			text: nameChart
 		},
 		series: [
 			{
@@ -58,33 +62,36 @@ export const Chart = (props: any) => {
 	const chooseRadius = () => {
 		setTitleButton("Radius");
 		setShow(false);
-		
-		console.log("data1");
 	};
 
 	const chooseOrbita = () => {
 		setTitleButton("Orbita");
 		setShow(false);
-		
-		console.log("data2");
 	};
 
-	// const optionsSelect = {
-	// 	"Radius": {
-	// 		select: minRadius,
-			
-	// 	},
-	// 	"Option": {
-	// 		select: orbitPlanet,
-	// 	}
-	// }
+	const chooseRotation =() => {
+		setTitleButton("Rotation");
+		setShow(false);
+	};
 
 	const compare = () => {
-		// setDataChart(optionsSelect.titleButton.select);
-		//console.log(titleButton)
-		
-		titleButton === "Radius" ? setDataChart(minRadius) : setDataChart(orbitPlanet);
-		
+		switch(titleButton) {
+			case 'Radius':
+				setDataChart(minRadius);
+				setName('График планет по радиусу');
+				break;
+			case 'Orbita':
+				setDataChart(orbitPlanet);
+				setName('График планет по диаметру орбиты');
+				break;
+			case 'Rotation':
+				setDataChart(rotation);
+				setName('График планет по звездному вращению');
+				break;
+			default:
+				setDataChart(rotation);
+				setName('График планет по звездному вращению');
+		}
 	};
 
 	return (
@@ -99,6 +106,7 @@ export const Chart = (props: any) => {
 							<ul className="list">
 								<li className="itemList" onClick={ chooseRadius }>Radius</li>
 								<li className="itemList" onClick={ chooseOrbita }>Orbita</li>
+								<li className="itemList" onClick={ chooseRotation }>Rotation</li>
 							</ul>
 						}
 					</div>
