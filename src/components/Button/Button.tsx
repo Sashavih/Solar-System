@@ -1,5 +1,5 @@
 export interface ButtonProps {
-	title: string,
+	title: String,
 	type: "button" | "submit" | "reset" | undefined,
 	className: string,
 	handleClick?:  React.MouseEventHandler<HTMLButtonElement> | undefined,

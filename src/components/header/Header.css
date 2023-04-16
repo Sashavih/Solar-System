@@ -37,10 +37,12 @@
 
 .listData {
 	position: absolute;
-	top: 75px;
-	right: 297px;
+	top: 65px;
+	right: 100px;
 	margin: 0;
-	padding: 10px 20px;
+	padding: 10px;
+	padding-right: 20px;
+	width: 65px;
 	background-color: white;
 	border-radius: 10px;
 	text-align: start;
